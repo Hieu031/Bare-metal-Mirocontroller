@@ -46,7 +46,9 @@ typedef struct {
 typedef struct {
     volatile uint32_t MEMRMP;       /* Memory remap */
     volatile uint32_t PMC;          /* Peripheral mode configuration */
-    volatile uint32_t EXTICR[2];    /* External interrupt configuration (EXTI0-3 in EXTICR[0], EXTI4-7 in EXTICR[1]) */
+    volatile uint32_t EXTICR[4];    /* External interrupt configuration (EXTI0-3 in EXTICR[0], EXTI4-7 in EXTICR[1]) */
+    uint32_t RESERVED[2];
+    volatile uint32_t CMPCR;
 } SYSCFG_TypeDef;
 
 /* pointer to pointer address base to use struct above */
@@ -63,7 +65,7 @@ typedef struct {
     volatile uint32_t PR;       /* Pending register (write 1 to clear ) */
 } EXTI_TypeDef;
 
-/* pinter to access struct */
+/* ponter to access struct */
 #define EXTI    ((EXTI_TypeDef *) EXTI_BASE)
 
 /* ===== TIM2 ===== */
